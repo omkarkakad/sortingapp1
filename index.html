@@ -1,0 +1,76 @@
+<html>
+<head>
+<title> Name sorting App </title>
+<style>
+*{font-size:40px;}
+body{background-color:#C672A3;}
+h1{background-color:black;color:white;width:50%;border-radius:40px;}
+.btn{background-color:black;color:white;width:20%;border-radius:40px;}
+.btn:hover{color:red;}
+
+</style>
+
+</head>
+<body>
+<center>
+<h1> Sort your name </h1>
+<form onsubmit="sort()">
+<input type="text" placeholder="Enter ur name" id="name" />
+<br/><br/>
+<input type="submit" value="Sort" class="btn"/>
+
+</form>
+<h2 id="msg"/>
+
+	<script>
+		function sort()
+		{
+			event.preventDefault()
+			let name=document.getElementById("name");
+			let msg=document.getElementById("msg");
+
+			if (name.value==="")
+			{
+				alert("u did not enter the name");
+				msg.innerHTML="";
+				name.focus();
+				return;
+		
+
+			}
+			if (name.value.trim()==="")
+			{
+				alert("name shud not contain empty spaces");
+				msg.innerHTML="";
+				name.value="";
+				name.focus();
+				return;
+		
+
+			}
+			if (!name.value.match(/^[A-Za-z ]+$/))
+			{
+				alert("name shud contain only alphabets");
+				msg.innerHTML="";
+				name.value="";
+				name.focus();
+				return;
+		
+
+			}
+			let res=name.value.split("");
+			res.sort();
+			let sort_name=res.join("");
+			msg.innerHTML=sort_name
+			
+			
+
+		}
+
+	</script>
+</center>
+
+</body>
+
+
+</html>
